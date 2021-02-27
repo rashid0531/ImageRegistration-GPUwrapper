@@ -1,0 +1,11 @@
+#!/bin/bash
+date
+
+python imageRegistration_gpu.py -g 1 -i /u1/rashid/ImageRegistration/Data/drone_images_tif/set_1/ -o registration_output/g1_local/ -r -p > output_gpu_1.csv &
+python imageRegistration_gpu.py -g 1 -i /u1/rashid/ImageRegistration/Data/drone_images_tif/set_2/ -o registration_output/g2_local/ -r -p > output_gpu_2.csv &
+
+wait;wait;
+
+
+date
+

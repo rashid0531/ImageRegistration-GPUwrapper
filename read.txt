@@ -1,0 +1,11 @@
+python setupGpuWrapper.py build_ext --inplace
+
+python imageRegistration.py -g 3 -i ~/ImageRegistration/Data/drone_images_tif/ -o registration_output/ -r -p
+
+python imageRegistration.py -i ~/ImageRegistration/Data/drone_images_tif/ -o registration_output/ -r -p
+
+python imageRegistration_cpu.py -i /discus/rashid/ImageRegistration/Data/drone_images_tif/full_set/ -o registration_output/ -r -p
+
+git commit -m "added bash scripts for local and NFS directory"
+
+nvprof --devices 0 --profile-child-processes ./imageRegistration.py -g 0 -i ~/ImageRegistration/Data/drone_images_tif/drone_images_tif_1/ -o registration_output/ -r -p
